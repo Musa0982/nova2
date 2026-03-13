@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nova — AI Assistant</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <div class="brand">
+          <span class="brand-icon">N</span>
+          <span class="brand-name">Nova</span>
+        </div>
+        <button class="new-chat-btn" onclick="newChat()">+ New Chat</button>
+        <div class="history-label">Recent</div>
+        <div id="history-list" class="history-list"></div>
+      </div>
+      <div class="sidebar-bottom">
+        <div class="made-by">Made by Muhammad Musa Bilal</div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <!-- ROBOT HEADER -->
+      <div class="robot-area" id="robot-area">
+        <div class="robot-wrap">
+          <svg id="nova-robot" class="robot robot-idle" width="80" height="90" viewBox="0 0 64 72" fill="none">
+            <rect x="20" y="2" width="24" height="6" rx="3" fill="#CBD5E1" opacity="0.6"/>
+            <rect x="30" y="2" width="4" height="8" fill="#CBD5E1" opacity="0.6"/>
+            <rect x="10" y="10" width="44" height="32" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+            <circle cx="22" cy="26" r="6" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+            <circle cx="42" cy="26" r="6" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+            <circle id="pupil-l" cx="22" cy="26" r="3" fill="#1E293B"/>
+            <circle id="pupil-r" cx="42" cy="26" r="3" fill="#1E293B"/>
+            <rect id="mouth" x="20" y="36" width="24" height="3" rx="1.5" fill="#CBD5E1"/>
+            <rect x="4" y="14" width="6" height="18" rx="3" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+            <rect x="54" y="14" width="6" height="18" rx="3" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+            <rect x="16" y="42" width="32" height="22" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+            <rect x="22" y="48" width="8" height="8" rx="2" fill="#E2E8F0"/>
+            <rect x="34" y="48" width="8" height="8" rx="2" fill="#E2E8F0"/>
+            <circle id="chest-light" cx="32" cy="57" r="3" fill="#94A3B8"/>
+            <rect x="22" y="64" width="8" height="8" rx="3" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+            <rect x="34" y="64" width="8" height="8" rx="3" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+          </svg>
+          <div class="robot-name">NOVA</div>
+          <div class="robot-status" id="robot-status">ready to chat</div>
+        </div>
+        <div class="welcome-text" id="welcome-text">
+          <h1>Hi, I'm Nova!</h1>
+          <p>Your personal AI assistant. Ask me anything.</p>
+          <div class="suggestions">
+            <button class="suggestion" onclick="suggest('What can you help me with?')">What can you do?</button>
+            <button class="suggestion" onclick="suggest('Tell me a fun fact')">Fun fact</button>
+            <button class="suggestion" onclick="suggest('Write me a short poem')">Write a poem</button>
+            <button class="suggestion" onclick="suggest('Help me debug my code')">Debug code</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- MESSAGES -->
+      <div class="messages" id="messages"></div>
+
+      <!-- INPUT -->
+      <div class="input-area">
+        <div class="input-box">
+          <textarea id="chat-input" placeholder="Message Nova..." rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+          <button id="send-btn" class="send-btn" onclick="sendMessage()">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8L14 2L8 14L7 9L2 8Z" fill="currentColor"/></svg>
+          </button>
+        </div>
+        <div class="input-hint">Nova can make mistakes. Verify important info.</div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
