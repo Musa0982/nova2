@@ -1,5 +1,5 @@
 const API_URL = "https://api.groq.com/openai/v1/chat/completions";
-const GROQ_KEY = "YOUR_GROQ_API_KEY"; // replace this with your key from console.groq.com
+const GROQ_KEY = "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"; // replace this with your key from console.groq.com
 
 let messages = [];
 let chatHistory = [];
